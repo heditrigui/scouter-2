@@ -29,7 +29,7 @@ class Camera:
                 self._cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
                 self._cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
             else:
-                self._cap = cv2.VideoCapture(source)  # e.g. http://192.168.1.13:8080/video
+                self._cap = cv2.VideoCapture(source)  # e.g. http://192.168.0.50:8080/video
             if not self._cap.isOpened():
                 raise RuntimeError(f"Could not open camera {source!r}")
 

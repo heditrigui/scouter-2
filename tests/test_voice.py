@@ -22,16 +22,16 @@ def test_phrases():
 def test_known_person_greeted_once_per_cooldown():
     clock = Clock()
     a = Announcer(person_cooldown=30, clock=clock)
-    assert a.people(["Hedi"]) == "Hello Hedi."
+    assert a.people(["Alex"]) == "Hello Alex."
     clock.t = 10
-    assert a.people(["Hedi"]) is None
+    assert a.people(["Alex"]) is None
     clock.t = 31
-    assert a.people(["Hedi"]) == "Hello Hedi."
+    assert a.people(["Alex"]) == "Hello Alex."
 
 
 def test_two_people_in_one_sentence():
     a = Announcer(clock=Clock())
-    assert a.people(["Sam", "Hedi"]) == "Hello Hedi and Sam."
+    assert a.people(["Sam", "Alex"]) == "Hello Alex and Sam."
 
 
 def test_unknown_face_needs_to_stay_in_view():
@@ -77,6 +77,6 @@ def test_object_streak_resets_when_it_disappears():
 
 def test_describe_ignores_cooldowns():
     a = Announcer(clock=Clock())
-    a.people(["Hedi"])
-    assert a.describe(["Hedi", None], ["cup", "cup", "book"]) == "I see Hedi, a person I don't know, two cups and a book."
+    a.people(["Alex"])
+    assert a.describe(["Alex", None], ["cup", "cup", "book"]) == "I see Alex, a person I don't know, two cups and a book."
     assert a.describe([], []) == "I don't see anything I recognise."

@@ -2,9 +2,9 @@
 
 A camera that tells you who and what it sees, out loud.
 
-Point a webcam (or a Raspberry Pi camera) at the room: Scouter recognises the people you've taught it, spots 80 kinds of everyday objects, and says what's there: *"Hello Hedi."*, *"I see a laptop and two cups."*
+Point a webcam (or a Raspberry Pi camera) at the room: Scouter recognises the people you've taught it, spots 80 kinds of everyday objects, and says what's there: *"Hello Alex."*, *"I see a laptop and two cups."*
 
-This is a rewrite of my 2020 Raspberry Pi project [Scouter](https://github.com/heditrigui/Scouter), which never got as far as actually speaking what it saw.
+This is a rewrite of an earlier (2020) Raspberry Pi project, Scouter, which never got as far as actually speaking what it saw.
 
 ## Features
 
@@ -24,7 +24,7 @@ This is a rewrite of my 2020 Raspberry Pi project [Scouter](https://github.com/h
 Needs Python 3.10 or newer.
 
 ```bash
-git clone https://github.com/heditrigui/scouter-2.git
+git clone <this repository URL>
 cd scouter-2
 python -m venv .venv
 .venv/Scripts/activate        # Windows; on macOS/Linux: source .venv/bin/activate
@@ -36,7 +36,7 @@ The three models (about 75 MB) download automatically on first run from the [Ope
 ## Use
 
 ```bash
-python -m scouter enroll Hedi          # look at the webcam for a few seconds
+python -m scouter enroll Alex          # look at the webcam for a few seconds
 python -m scouter enroll Sam --photos path/to/sam_photos
 python -m scouter                      # start
 python -m scouter people               # who it knows
@@ -50,7 +50,7 @@ Useful options for `python -m scouter`:
 | Option | |
 |---|---|
 | `--camera 1` | another webcam |
-| `--camera http://192.168.1.13:8080/video` | a phone running an IP-camera app |
+| `--camera http://192.168.0.50:8080/video` | a phone running an IP-camera app |
 | `--camera picamera` | the Raspberry Pi camera module |
 | `--headless` | no window, for a Pi without a screen (Ctrl+C to stop) |
 | `--quiet` | print what it would say instead of speaking |
