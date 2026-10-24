@@ -4,6 +4,8 @@ A camera that tells you who and what it sees, out loud.
 
 Point a webcam (or a Raspberry Pi camera) at the room: Scouter recognises the people you've taught it, spots 80 kinds of everyday objects, and says what's there: *"Hello Alex."*, *"I see a laptop and two cups."*
 
+<p align="center"><img src="docs/screenshot.jpg" width="640" alt="Scouter overlay: brackets around a laptop (95%) and a cup (89%), with the spoken sentence 'I see a laptop and a cup.'"></p>
+
 This is a rewrite of an earlier (2020) Raspberry Pi project, Scouter, which never got as far as actually speaking what it saw.
 
 ## Features
@@ -106,6 +108,8 @@ The tests cover the announcement rules (cooldowns, debouncing, phrasing), the fa
 ## Credits
 
 Models from the [OpenCV model zoo](https://github.com/opencv/opencv_zoo): YuNet (MIT), SFace (Apache 2.0), YOLOX (Apache 2.0). They are downloaded at run time, not included in this repository.
+
+The screenshot uses [Home-office-336377.jpg](https://commons.wikimedia.org/wiki/File:Home-office-336377.jpg) from Wikimedia Commons (CC0).
 
 ## License
 
