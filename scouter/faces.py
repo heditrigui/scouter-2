@@ -73,6 +73,15 @@ class FaceDB:
         self.features = self.features[keep] if keep else np.zeros((0, 128), np.float32)
         return removed
 
+    def rename(self, old: str, new: str) -> int:
+        """Gives [old]'s samples to [new] (merging if [new] exists); returns how many moved."""
+        moved = 0
+        for i, n in enumerate(self.names):
+            if n.lower() == old.lower():
+                self.names[i] = new
+                moved += 1
+        return moved
+
     def people(self) -> dict[str, int]:
         """Name -> number of stored samples."""
         out: dict[str, int] = {}

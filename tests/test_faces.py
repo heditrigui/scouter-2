@@ -25,7 +25,9 @@ def test_match_save_load_forget(tmp_path):
     assert db.match(sam)[0] == "Sam"
     assert db.match(unit(rng.normal(size=128)))[0] is None  # a random face matches nobody
 
-    assert db.forget("alex") == 3
+    assert db.rename("alex", "Alexandra") == 3
+    assert db.match(alex)[0] == "Alexandra"
+    assert db.forget("alexandra") == 3
     assert db.people() == {"Sam": 1}
     assert db.forget("nobody") == 0
     assert db.forget("Sam") == 1
