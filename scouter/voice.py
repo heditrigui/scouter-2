@@ -119,6 +119,7 @@ class Voice:
         self.enabled = enabled
         self.muted = False
         self.last = ""
+        self.speaking = False
         self._q: queue.Queue[str] = queue.Queue()
         self._rate = rate
         if enabled:
@@ -139,10 +140,13 @@ class Voice:
             # If several sentences piled up while speaking, only the newest is still relevant.
             while not self._q.empty():
                 text = self._q.get()
+            self.speaking = True
             try:
                 speak(text)
             except Exception as e:  # never let speech take the app down
                 print("[voice] error:", e, file=sys.stderr)
+            finally:
+                self.speaking = False
 
     def _backend(self):
         try:
